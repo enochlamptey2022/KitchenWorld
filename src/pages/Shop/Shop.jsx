@@ -6,7 +6,7 @@ import ProductCard from "../../components/ProductCard/ProductCard";
 import shopHeroImage from "../../assets/kitchen2.png";
 import shopHeroAltOne from "../../assets/kitchen.png";
 import shopHeroAltTwo from "../../assets/hero.png";
-import cookwareImage from "../../assets/Categories/cookware.jpg";
+import cookwareImage from "../../assets/categories/cookware.jpg";
 
 function Shop({ searchTerm }) {
   const location = useLocation();
@@ -39,7 +39,7 @@ function Shop({ searchTerm }) {
         setLoading(true);
 
         const response = await fetch(
-          "http://localhost:5000/api/products"
+          `http://${import.meta.env.VITE_API_URL}/api/products`
         );
 
         if (!response.ok) {
