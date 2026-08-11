@@ -1,20 +1,16 @@
 import express from "express";
 import cors from "cors";
 import "dotenv/config";
-
 import productRoutes from "./routes/productRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
-
 import pool from "./config/db.js";
-
 import orderRoutes from "./routes/orderRoutes.js";
-
 import paymentRoutes from "./routes/paymentRoutes.js";
 
 
 const app = express();
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.use(express.json());
 
 console.log(
