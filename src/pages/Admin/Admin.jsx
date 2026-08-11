@@ -54,9 +54,8 @@ function Admin() {
   const fetchProducts = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/products"
+        `${import.meta.env.VITE_API_URL}/api/products`
       );
-
       const data = await response.json();
 
       if (!response.ok) {
@@ -93,7 +92,7 @@ function Admin() {
         localStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/orders",
+        `http://${import.meta.env.VITE_API_URL}/api/orders`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -236,7 +235,7 @@ function Admin() {
       setAddingProduct(true);
 
       const response = await fetch(
-        "http://localhost:5000/api/products",
+        `${import.meta.env.VITE_API_URL}/api/products`,
         {
           method: "POST",
 
@@ -369,7 +368,7 @@ function Admin() {
         setUpdatingProduct(true);
 
         const response = await fetch(
-          `http://localhost:5000/api/products/${editingProductId}`,
+          `${import.meta.env.VITE_API_URL}/api/products/${editingProductId}`,
           {
             method: "PUT",
 
@@ -539,7 +538,7 @@ function Admin() {
       try {
 
         const response = await fetch(
-          `http://localhost:5000/api/orders/${orderId}/status`,
+          `${import.meta.env.VITE_API_URL}/api/orders/${orderId}/status`,
           {
             method: "PUT",
 

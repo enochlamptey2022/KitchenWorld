@@ -26,7 +26,7 @@ function Account({ user, setUser }) {
         setLoading(true);
 
         const response = await fetch(
-          "http://localhost:5000/api/auth/me",
+          `${import.meta.env.VITE_API_URL}/auth/me`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -72,7 +72,7 @@ function Account({ user, setUser }) {
         setOrdersLoading(true);
 
         const response = await fetch(
-          "http://localhost:5000/api/orders/my-orders",
+          `${import.meta.env.VITE_API_URL}/api/orders/my-orders`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
