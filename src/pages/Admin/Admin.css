@@ -1,0 +1,296 @@
+.admin-page {
+  padding: 50px 5%;
+  background-color: #f8f8f8;
+  min-height: 80vh;
+}
+
+.admin-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+
+  margin-bottom: 30px;
+}
+
+.admin-header h1 {
+  margin-bottom: 5px;
+}
+
+.admin-header p {
+  margin: 0;
+  color: #666666;
+}
+
+.admin-add-button {
+  padding: 12px 20px;
+
+  border: none;
+  border-radius: 5px;
+
+  background-color: var(--mauve-dark);
+  color: white;
+
+  cursor: pointer;
+}
+
+.admin-table-wrapper {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  background-color: white;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 15px;
+
+  border-bottom: 1px solid #eeeeee;
+
+  text-align: left;
+}
+
+.admin-table th {
+  background-color: #f2f2f2;
+}
+
+.admin-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.admin-actions button {
+  padding: 8px 12px;
+
+  border: 1px solid #cccccc;
+
+  background-color: white;
+
+  cursor: pointer;
+}
+
+.admin-error {
+  padding: 12px;
+
+  background-color: #fff1f1;
+  color: #a52626;
+
+  margin-bottom: 20px;
+}
+
+.admin-product-form {
+  margin-bottom: 35px;
+  padding: 25px;
+
+  background-color: #ffffff;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+}
+
+.admin-product-form h2 {
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+.admin-form-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 20px;
+}
+
+.admin-form-grid div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+.admin-form-grid label {
+  font-weight: 600;
+}
+
+.admin-form-grid input,
+.admin-form-grid select,
+.admin-form-grid textarea {
+  padding: 12px;
+
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+
+  font-size: 15px;
+}
+
+.admin-form-full {
+  grid-column:
+    1 / -1;
+}
+
+.admin-save-button {
+  margin-top: 25px;
+
+  padding: 12px 22px;
+
+  border: none;
+  border-radius: 5px;
+
+  background-color: var(--mauve-dark);
+  color: #ffffff;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.admin-save-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 700px) {
+  .admin-form-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+  .admin-form-full {
+    grid-column: auto;
+  }
+}
+
+.admin-edit-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.admin-cancel-button {
+  padding: 12px 22px;
+
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+
+  background-color: white;
+
+  cursor: pointer;
+}
+
+
+.admin-orders-section {
+  margin-top: 50px;
+}
+
+.admin-orders-heading {
+  margin-bottom: 25px;
+}
+
+.admin-orders-heading h2 {
+  margin-bottom: 5px;
+}
+
+.admin-orders-heading p {
+  margin: 0;
+  color: #666666;
+}
+
+.admin-orders-list {
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.admin-order-card {
+  padding: 25px;
+
+  background-color: #ffffff;
+
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+}
+
+.admin-order-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+
+  margin-bottom: 25px;
+}
+
+.admin-order-top h3 {
+  margin: 0 0 5px;
+}
+
+.admin-order-top p {
+  margin: 0;
+  color: #777777;
+}
+
+.admin-order-top select {
+  padding: 10px 12px;
+
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+
+  background-color: white;
+}
+
+.admin-order-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 20px;
+}
+
+.admin-order-grid div {
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.admin-order-grid span {
+  color: #777777;
+
+  font-size: 13px;
+}
+
+.admin-order-grid strong {
+  font-size: 14px;
+}
+
+@media (max-width: 900px) {
+  .admin-order-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .admin-order-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-order-top {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
