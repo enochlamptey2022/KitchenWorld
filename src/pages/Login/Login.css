@@ -224,27 +224,167 @@
 
   font-size: 14px;
 }
+/* =========================
+   RESPONSIVE LOGIN
+========================= */
 
-@media (max-width: 600px) {
-
+/* TABLET */
+@media (max-width: 768px) {
   .login-page {
-    min-height: auto;
-
-    padding: 35px 16px;
+    padding: 30px 18px;
   }
 
   .login-card {
-    padding: 35px 24px;
+    max-width: 440px;
+
+    padding: 38px 32px;
   }
 
   .login-card h1 {
-    font-size: 30px;
+    margin-bottom: 34px;
+
+    font-size: 31px;
+  }
+
+  .login-eyebrow {
+    font-size: 14px;
+  }
+
+  .login-form {
+    gap: 18px;
+  }
+
+  .login-form > input {
+    height: 52px;
+
+    font-size: 14px;
+  }
+
+  .login-button {
+    height: 52px;
+
+    font-size: 14px;
+  }
+
+  .google-button {
+    height: 50px;
+
+    font-size: 14px;
+  }
+}
+
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .login-page {
+    min-height: 100vh;
+
+    padding: 24px 14px;
+  }
+
+  .login-card {
+    max-width: none;
+
+    padding: 30px 20px;
+
+    border-radius: 7px;
+  }
+
+  .login-eyebrow {
+    margin-bottom: 6px;
+
+    font-size: 13px;
+  }
+
+  .login-card h1 {
+    margin-bottom: 28px;
+
+    font-size: 27px;
+  }
+
+  .login-form {
+    gap: 16px;
+  }
+
+  .login-form > input {
+    height: 50px;
+
+    padding: 0 13px;
+
+    font-size: 13px;
   }
 
   .login-options {
-    align-items: flex-start;
     flex-direction: column;
+    align-items: flex-start;
 
-    gap: 12px;
+    gap: 10px;
+
+    font-size: 12px;
+  }
+
+  .remember-row input {
+    width: 15px;
+    height: 15px;
+  }
+
+  .login-button {
+    height: 50px;
+
+    margin-top: 8px;
+
+    font-size: 14px;
+  }
+
+  .google-button {
+    height: 48px;
+
+    margin-top: 18px;
+
+    font-size: 13px;
+  }
+
+  .google-button svg {
+    font-size: 19px;
+  }
+
+  .signup-text {
+    margin-top: 18px;
+
+    font-size: 12px;
+  }
+
+  .login-error {
+    margin: -12px 0 18px;
+
+    padding: 10px 12px;
+
+    font-size: 12px;
+  }
+}
+
+
+/* VERY SMALL MOBILE */
+@media (max-width: 360px) {
+  .login-page {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .login-card {
+    padding: 26px 16px;
+  }
+
+  .login-card h1 {
+    font-size: 24px;
+  }
+
+  .login-form > input {
+    height: 48px;
+  }
+
+  .login-button,
+  .google-button {
+    height: 48px;
   }
 }

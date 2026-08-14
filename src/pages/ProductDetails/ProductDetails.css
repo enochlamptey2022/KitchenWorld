@@ -326,56 +326,258 @@ PRODUCT NOT FOUND
   color: #666666;
 }
 
-
 /* =========================
-RESPONSIVE
+RESPONSIVE PRODUCT DETAILS
 ========================= */
 
-@media (max-width: 950px) {
+/* SMALL LAPTOP / TABLET */
+@media (max-width: 1100px) {
+  .product-details-page {
+    padding: 60px 5% 80px;
+  }
 
   .product-details-container {
-    grid-template-columns: 1fr;
-
-    gap: 40px;
+    gap: 50px;
   }
 
   .product-details-image {
-    min-height: auto;
+    min-height: 540px;
+    padding: 40px;
   }
 
   .product-details-image img {
-    height: 430px;
+    height: 450px;
   }
 
   .product-details-info h1 {
-    font-size: 36px;
+    font-size: 38px;
+  }
+
+  .details-price {
+    font-size: 28px;
+  }
+
+  .details-description {
+    font-size: 15px;
   }
 }
 
 
-@media (max-width: 600px) {
+/* TABLET */
+@media (max-width: 900px) {
+  .product-details-page {
+    padding: 45px 5% 70px;
+  }
 
+  .product-details-container {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .product-details-image {
+    min-height: auto;
+    padding: 35px;
+  }
+
+  .product-details-image img {
+    height: 420px;
+  }
+
+  .product-details-info {
+    padding-top: 0;
+  }
+
+  .product-details-info h1 {
+    max-width: 100%;
+    font-size: 34px;
+  }
+
+  .details-description {
+    max-width: 100%;
+  }
+
+  .details-cart-button {
+    max-width: 420px;
+  }
+}
+
+
+/* TABLET / LARGE PHONE */
+@media (max-width: 768px) {
   .product-details-page {
     padding: 35px 20px 60px;
   }
 
   .product-details-image {
-    padding: 25px;
+    padding: 28px;
   }
 
   .product-details-image img {
-    height: 310px;
+    height: 350px;
+  }
+
+  .details-category {
+    font-size: 11px;
   }
 
   .product-details-info h1 {
-    font-size: 29px;
+    font-size: 30px;
+    line-height: 1.15;
+  }
+
+  .details-rating {
+    margin-bottom: 18px;
   }
 
   .details-price {
     font-size: 25px;
   }
 
+  .details-stock {
+    margin-bottom: 22px;
+  }
+
+  .details-description {
+    margin-bottom: 26px;
+
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .quantity-section {
+    margin-bottom: 24px;
+  }
+
+  .quantity-selector button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .quantity-selector span {
+    width: 52px;
+  }
+
   .details-cart-button {
     max-width: none;
+    height: 54px;
+  }
+}
+
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .product-details-page {
+    padding: 24px 14px 45px;
+  }
+
+  .product-details-container {
+    gap: 26px;
+  }
+
+  .product-details-image {
+    padding: 18px;
+    border-radius: 7px;
+  }
+
+  .product-details-image img {
+    height: 280px;
+  }
+
+  .details-category {
+    margin-bottom: 10px;
+
+    font-size: 10px;
+    letter-spacing: 1.4px;
+  }
+
+  .product-details-info h1 {
+    margin-bottom: 14px;
+
+    font-size: 27px;
+  }
+
+  .details-rating {
+    gap: 6px;
+    margin-bottom: 16px;
+
+    font-size: 13px;
+  }
+
+  .details-rating span:first-child {
+    font-size: 17px;
+  }
+
+  .details-price {
+    margin-bottom: 14px;
+
+    font-size: 23px;
+  }
+
+  .details-stock {
+    margin-bottom: 20px;
+
+    padding: 6px 10px;
+
+    font-size: 12px;
+  }
+
+  .details-description {
+    margin-bottom: 22px;
+
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .product-details-divider {
+    margin: 22px 0;
+  }
+
+  .quantity-section p {
+    font-size: 13px;
+  }
+
+  .quantity-selector button {
+    width: 42px;
+    height: 42px;
+
+    font-size: 18px;
+  }
+
+  .quantity-selector span {
+    width: 48px;
+
+    font-size: 15px;
+  }
+
+  .details-cart-button {
+    width: 100%;
+    height: 52px;
+
+    font-size: 14px;
+  }
+}
+
+
+/* VERY SMALL MOBILE */
+@media (max-width: 360px) {
+  .product-details-page {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .product-details-image img {
+    height: 240px;
+  }
+
+  .product-details-info h1 {
+    font-size: 24px;
+  }
+
+  .details-price {
+    font-size: 21px;
+  }
+
+  .details-description {
+    font-size: 13px;
   }
 }

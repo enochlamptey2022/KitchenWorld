@@ -294,60 +294,272 @@
   font-weight: 600;
 }
 
-
 /* =========================
-   RESPONSIVE
+   RESPONSIVE CHECKOUT
 ========================= */
 
+/* SMALL LAPTOP */
+@media (max-width: 1100px) {
+  .checkout-page {
+    padding: 50px 5%;
+  }
+
+  .checkout-container {
+    grid-template-columns: 1fr 360px;
+    gap: 36px;
+  }
+
+  .checkout-main h1 {
+    font-size: 36px;
+  }
+
+  .checkout-section {
+    padding: 26px;
+  }
+
+  .checkout-summary {
+    padding: 26px;
+  }
+}
+
+
+/* TABLET */
 @media (max-width: 950px) {
+  .checkout-page {
+    padding: 40px 5% 60px;
+  }
+
   .checkout-container {
     grid-template-columns: 1fr;
+    gap: 30px;
   }
 
   .checkout-summary {
     position: static;
+    top: auto;
+  }
+
+  .checkout-main h1 {
+    font-size: 33px;
+  }
+
+  .checkout-section h2,
+  .checkout-summary h2 {
+    font-size: 20px;
   }
 }
 
-@media (max-width: 650px) {
+
+/* TABLET / LARGE PHONE */
+@media (max-width: 700px) {
   .checkout-page {
-    padding: 30px 5%;
+    padding: 30px 20px 50px;
+  }
+
+  .checkout-main h1 {
+    margin-bottom: 24px;
+
+    font-size: 30px;
+  }
+
+  .checkout-section {
+    margin-bottom: 22px;
+
+    padding: 22px;
+  }
+
+  .checkout-section h2 {
+    margin-bottom: 20px;
+
+    font-size: 19px;
   }
 
   .form-grid {
     grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .form-group.full-width {
     grid-column: auto;
   }
 
-  .checkout-section {
-    padding: 20px;
+  .form-group input {
+    padding: 13px 14px;
+
+    font-size: 14px;
+  }
+
+  .delivery-option {
+    padding: 16px;
+
+    gap: 12px;
+  }
+
+  .place-order-button {
+    padding: 15px;
+
+    font-size: 15px;
+  }
+
+  .checkout-summary {
+    padding: 24px;
   }
 
   .checkout-item {
-    grid-template-columns: 60px 1fr;
+    grid-template-columns: 60px 1fr auto;
+
+    gap: 12px;
+  }
+
+  .checkout-item img {
+    width: 58px;
+    height: 58px;
+  }
+
+  .checkout-item-info h3 {
+    font-size: 13px;
+  }
+
+  .checkout-item-info p,
+  .checkout-item strong {
+    font-size: 12px;
+  }
+}
+
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .checkout-page {
+    padding: 22px 14px 40px;
+  }
+
+  .checkout-main h1 {
+    font-size: 27px;
+  }
+
+  .checkout-section {
+    padding: 18px 15px;
+  }
+
+  .checkout-section h2 {
+    font-size: 18px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+  }
+
+  .form-group input {
+    padding: 12px 13px;
+
+    font-size: 13px;
+  }
+
+  .delivery-option {
+    padding: 14px;
+  }
+
+  .delivery-option strong {
+    font-size: 14px;
+  }
+
+  .delivery-option span {
+    font-size: 12px;
+  }
+
+  .place-order-button {
+    padding: 14px;
+
+    font-size: 14px;
+  }
+
+  .checkout-summary {
+    padding: 20px 15px;
+  }
+
+  .checkout-summary h2 {
+    margin-bottom: 18px;
+
+    font-size: 19px;
+  }
+
+  .checkout-item {
+    grid-template-columns: 52px 1fr;
+    gap: 10px;
+  }
+
+  .checkout-item img {
+    width: 50px;
+    height: 50px;
   }
 
   .checkout-item strong {
     grid-column: 2;
+
+    margin-top: 3px;
+
+    font-size: 13px;
+  }
+
+  .checkout-summary-row {
+    padding: 13px 0;
+
+    font-size: 14px;
+  }
+
+  .total-row {
+    font-size: 18px;
+  }
+
+  .checkout-empty {
+    margin: 50px auto;
+
+    padding: 45px 18px;
+  }
+
+  .checkout-empty h1 {
+    font-size: 24px;
+  }
+
+  .checkout-empty p {
+    font-size: 14px;
+  }
+
+  .checkout-shop-link {
+    padding: 12px 20px;
+
+    font-size: 14px;
+  }
+
+  .checkout-error {
+    font-size: 13px;
   }
 }
 
-.checkout-error {
-  margin-bottom: 20px;
-  padding: 12px 15px;
 
-  background-color: #fff1f1;
-  color: #a52626;
+/* VERY SMALL MOBILE */
+@media (max-width: 360px) {
+  .checkout-page {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
 
-  border-radius: 5px;
+  .checkout-section,
+  .checkout-summary {
+    padding-left: 13px;
+    padding-right: 13px;
+  }
 
-  font-size: 14px;
-}
+  .checkout-main h1 {
+    font-size: 24px;
+  }
 
-.place-order-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
+  .checkout-item {
+    grid-template-columns: 46px 1fr;
+  }
+
+  .checkout-item img {
+    width: 44px;
+    height: 44px;
+  }
 }

@@ -164,21 +164,243 @@
   background-color: #fff1f1;
   color: #a52626;
 }
+/* =========================
+   RESPONSIVE ACCOUNT PAGE
+========================= */
 
-@media (max-width: 800px) {
+/* TABLET / SMALL LAPTOP */
+@media (max-width: 1024px) {
+  .account-header {
+    margin-bottom: 30px;
+  }
+
+  .account-header h1 {
+    font-size: 32px;
+  }
+
+  .orders-section {
+    padding: 26px;
+  }
+
+  .order-card {
+    padding: 20px;
+  }
+
   .order-details {
-    grid-template-columns:
-      repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
   }
 }
 
-@media (max-width: 500px) {
-  .order-details {
-    grid-template-columns: 1fr;
+
+/* TABLET */
+@media (max-width: 768px) {
+  .account-header {
+    align-items: flex-start;
+
+    gap: 16px;
+
+    margin-bottom: 25px;
+  }
+
+  .account-header h1 {
+    font-size: 29px;
+  }
+
+  .account-header p {
+    font-size: 14px;
+  }
+
+  .logout-button {
+    padding: 10px 17px;
+
+    font-size: 13px;
+  }
+
+  .orders-section {
+    margin-top: 30px;
+
+    padding: 22px;
   }
 
   .orders-heading {
-    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+
+  .orders-heading h2 {
+    font-size: 21px;
+  }
+
+  .orders-heading a {
+    font-size: 14px;
+  }
+
+  .order-card {
+    padding: 18px;
+  }
+
+  .order-card-top {
+    margin-bottom: 18px;
+  }
+
+  .order-details {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+  }
+
+  .order-details strong {
+    font-size: 13px;
+  }
+
+  .order-details span {
+    font-size: 12px;
+  }
+}
+
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .account-header {
     flex-direction: column;
+    align-items: stretch;
+
+    gap: 18px;
+
+    margin-bottom: 22px;
+  }
+
+  .account-header h1 {
+    margin-top: 0;
+
+    font-size: 26px;
+  }
+
+  .account-header p {
+    font-size: 13px;
+  }
+
+  .logout-button {
+    width: 100%;
+
+    padding: 12px;
+
+    font-size: 13px;
+  }
+
+  .orders-section {
+    margin-top: 25px;
+
+    padding: 18px 14px;
+  }
+
+  .orders-heading {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 8px;
+
+    margin-bottom: 18px;
+  }
+
+  .orders-heading h2 {
+    font-size: 20px;
+  }
+
+  .orders-heading a {
+    font-size: 13px;
+  }
+
+  .orders-list {
+    gap: 14px;
+  }
+
+  .order-card {
+    padding: 15px;
+  }
+
+  .order-card-top {
+    align-items: flex-start;
+
+    gap: 10px;
+
+    margin-bottom: 16px;
+  }
+
+  .order-label {
+    font-size: 12px;
+  }
+
+  .order-card-top strong {
+    font-size: 13px;
+  }
+
+  .order-status {
+    padding: 5px 9px;
+
+    font-size: 10px;
+  }
+
+  .order-details {
+    grid-template-columns: 1fr;
+
+    gap: 13px;
+  }
+
+  .order-details div {
+    gap: 3px;
+  }
+
+  .order-details span {
+    font-size: 11px;
+  }
+
+  .order-details strong {
+    font-size: 13px;
+  }
+
+  .no-orders {
+    padding: 30px 15px;
+  }
+
+  .no-orders h3 {
+    font-size: 19px;
+  }
+
+  .no-orders p {
+    font-size: 13px;
+  }
+
+  .no-orders a {
+    font-size: 13px;
+  }
+
+  .orders-error {
+    padding: 10px;
+
+    font-size: 12px;
+  }
+}
+
+
+/* VERY SMALL MOBILE */
+@media (max-width: 360px) {
+  .account-header h1 {
+    font-size: 24px;
+  }
+
+  .orders-section {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .order-card {
+    padding: 13px;
+  }
+
+  .order-status {
+    max-width: 100px;
+
+    text-align: center;
   }
 }

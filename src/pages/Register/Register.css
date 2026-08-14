@@ -213,22 +213,147 @@ ERROR
   font-size: 14px;
 }
 
-
 /* =========================
-MOBILE
+RESPONSIVE REGISTER
 ========================= */
 
-@media (max-width: 600px) {
-
+/* TABLET */
+@media (max-width: 768px) {
   .register-page {
-    padding: 30px 16px;
+    padding: 30px 18px;
   }
 
   .register-card {
-    padding: 34px 24px;
+    max-width: 460px;
+
+    padding: 38px 32px;
   }
 
   .register-card h1 {
-    font-size: 30px;
+    font-size: 31px;
+  }
+
+  .register-subtitle {
+    margin-bottom: 28px;
+
+    font-size: 13px;
+  }
+
+  .register-form {
+    gap: 18px;
+  }
+
+  .register-group input {
+    height: 52px;
+
+    font-size: 14px;
+  }
+
+  .register-button {
+    height: 52px;
+
+    font-size: 14px;
+  }
+}
+
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .register-page {
+    min-height: 100vh;
+
+    padding: 24px 14px;
+  }
+
+  .register-card {
+    max-width: none;
+
+    padding: 30px 20px;
+
+    border-radius: 7px;
+  }
+
+  .register-eyebrow {
+    margin-bottom: 6px;
+
+    font-size: 13px;
+  }
+
+  .register-card h1 {
+    font-size: 27px;
+  }
+
+  .register-subtitle {
+    margin-bottom: 24px;
+
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .register-form {
+    gap: 16px;
+  }
+
+  .register-group {
+    gap: 7px;
+  }
+
+  .register-group label {
+    font-size: 13px;
+  }
+
+  .register-group input {
+    height: 50px;
+
+    padding: 0 13px;
+
+    font-size: 13px;
+  }
+
+  .register-button {
+    height: 50px;
+
+    margin-top: 6px;
+
+    font-size: 14px;
+  }
+
+  .register-switch {
+    margin-top: 18px;
+
+    font-size: 12px;
+  }
+
+  .register-error {
+    margin-bottom: 18px;
+
+    padding: 10px 12px;
+
+    font-size: 12px;
+  }
+}
+
+
+/* VERY SMALL MOBILE */
+@media (max-width: 360px) {
+  .register-page {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .register-card {
+    padding: 26px 16px;
+  }
+
+  .register-card h1 {
+    font-size: 24px;
+  }
+
+  .register-group input {
+    height: 48px;
+  }
+
+  .register-button {
+    height: 48px;
   }
 }
