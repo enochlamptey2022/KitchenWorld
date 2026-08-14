@@ -40,13 +40,6 @@ function Footer() {
             </div>
           </div>
 
-          <div className="footer-payment-block">
-            <h3>Payment options</h3>
-            <div className="payment-row">
-              <span className="payment-chip visa" aria-label="Visa"><FaCcVisa /></span>
-              <span className="payment-chip momo" aria-label="Mobile Money">Mobile Money</span>
-            </div>
-          </div>
         </div>
       </div>
 
