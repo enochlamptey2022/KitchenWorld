@@ -1,17 +1,75 @@
 import express from "express";
 import cors from "cors";
 import "dotenv/config";
+
 import productRoutes from "./routes/productRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
-import pool from "./config/db.js";
 import orderRoutes from "./routes/orderRoutes.js";
 import paymentRoutes from "./routes/paymentRoutes.js";
+
+import pool from "./config/db.js";
 
 
 const app = express();
 
 const PORT = process.env.PORT || 5000;
+
+
+// =========================
+// CORS
+// =========================
+
+const allowedOrigins = [
+  "http://localhost:5173",
+  process.env.FRONTEND_URL,
+];
+
+
+app.use(
+  cors({
+    origin: (origin, callback) => {
+
+      // Allow requests with no origin
+      // e.g. Postman / Thunder Client / server requests
+      if (!origin) {
+        return callback(null, true);
+      }
+
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(
+        new Error("Not allowed by CORS")
+      );
+    },
+
+    methods: [
+      "GET",
+      "POST",
+      "PUT",
+      "DELETE",
+      "OPTIONS",
+    ],
+
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+    ],
+  })
+);
+
+
+// =========================
+// JSON MIDDLEWARE
+// =========================
+
 app.use(express.json());
+
+
+// =========================
+// ENVIRONMENT CHECKS
+// =========================
 
 console.log(
   "Paystack key loaded:",
@@ -24,55 +82,61 @@ console.log(
 );
 
 
-
-app.use(
-  cors({
-    origin: "http://localhost:5173",
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: [
-      "Content-Type",
-      "Authorization",
-    ],
-  })
-);
-
-app.use(express.json());
-
-app.use("/api/payments", paymentRoutes);
-
-// MIDDLEWARE
-app.use(cors());
-app.use(express.json());
-
+// =========================
 // HOME ROUTE
+// =========================
+
 app.get("/", (req, res) => {
-  res.send("Kitchen World API is running - version 2 ");
+  res.send(
+    "Kitchen World API is running"
+  );
 });
 
 
-app.get("/api/test", (req, res) => {
-  res.json({
-    message: "API test working",
+// =========================
+// API ROUTES
+// =========================
+
+app.use(
+  "/api/products",
+  productRoutes
+);
+
+app.use(
+  "/api/auth",
+  authRoutes
+);
+
+app.use(
+  "/api/orders",
+  orderRoutes
+);
+
+app.use(
+  "/api/payments",
+  paymentRoutes
+);
+
+
+// =========================
+// 404 HANDLER
+// =========================
+
+app.use((req, res) => {
+  res.status(404).json({
+    message: "Route not found",
   });
 });
 
 
-// PRODUCT ROUTES
-app.use("/api/products", productRoutes);
-
-// AUTH ROUTES
-app.use("/api/auth", authRoutes);
-
-
-app.use("/api/orders", orderRoutes); 
-
-
-
-
-
+// =========================
 // START SERVER
+// =========================
+
 app.listen(PORT, async () => {
+
   try {
+
     const result = await pool.query(
       "SELECT NOW()"
     );
@@ -87,9 +151,12 @@ app.listen(PORT, async () => {
     );
 
   } catch (error) {
+
     console.error(
       "Database connection failed:",
       error.message
     );
+
   }
+
 });
