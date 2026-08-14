@@ -46,13 +46,13 @@ app.use(express.json());
 
 // HOME ROUTE
 app.get("/", (req, res) => {
-  res.send("Kitchen World API is running");
+  res.send("Kitchen World API is running - version 2 ");
 });
 
 
 app.get("/api/test", (req, res) => {
   res.json({
-    message: "Backend API test working",
+    message: "API test working",
   });
 });
 
