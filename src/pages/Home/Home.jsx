@@ -15,7 +15,7 @@ import products from "../../data/products";
 
 
 
-function Home() {
+function Home({ addToCart }) {
   const categoriesRef = useRef(null);
 
   const categoryItems = [
@@ -190,7 +190,11 @@ function Home() {
 
   <div className="featured-products-grid">
     {products.map((product) => (
-      <ProductCard key={product.id} product={product} />
+     <ProductCard
+  key={product.id}
+  product={product}
+  addToCart={addToCart}
+/>
     ))}
   </div>
 </section>

@@ -8,7 +8,7 @@ import shopHeroAltOne from "../../assets/kitchen.png";
 import shopHeroAltTwo from "../../assets/hero.png";
 import cookwareImage from "../../assets/categories/cookware.jpg";
 
-function Shop({ searchTerm }) {
+function Shop({ searchTerm, addToCart }) {
   const location = useLocation();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -484,10 +484,11 @@ function Shop({ searchTerm }) {
             <div className="shop-products-grid">
 
               {sortedProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                />
+              <ProductCard
+  key={product.id}
+  product={product}
+  addToCart={addToCart}
+/>
               ))}
 
             </div>

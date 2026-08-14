@@ -60,20 +60,22 @@ function AppContent({
 
       <Routes>
 
-        <Route
-          path="/"
-          element={<Home />}
-        />
+      <Route
+  path="/"
+  element={
+    <Home addToCart={addToCart} />
+  }
+/>
 
-        <Route
-          path="/shop"
-          element={
-            <Shop
-              searchTerm={searchTerm}
-            />
-          }
-        />
-
+       <Route
+  path="/shop"
+  element={
+    <Shop
+      searchTerm={searchTerm}
+      addToCart={addToCart}
+    />
+  }
+/>
         <Route
           path="/admin"
           element={<Admin />}
@@ -141,7 +143,11 @@ function AppContent({
 
 <Route
   path="/search"
-  element={<SearchResults />}
+  element={
+    <SearchResults
+      addToCart={addToCart}
+    />
+  }
 />
         <Route
           path="/account"
