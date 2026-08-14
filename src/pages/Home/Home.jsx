@@ -6,17 +6,17 @@ import bakewareImg from "../../assets/categories/bakeware.jpg";
 import utensilsImg from "../../assets/categories/utensils.jpg";
 import bakingAccessoriesImg from "../../assets/categories/baking-accessories.jpg";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
 import ProductCard from "../../components/ProductCard/ProductCard";
-import products from "../../data/products";
-
-
-
 
 function Home({ addToCart }) {
   const categoriesRef = useRef(null);
+
+  const [products, setProducts] = useState([]);
+  const [loadingProducts, setLoadingProducts] = useState(true);
+  const [productsError, setProductsError] = useState("");
 
   const categoryItems = [
     {
@@ -68,6 +68,40 @@ function Home({ addToCart }) {
       query: "speciality cookware",
     },
   ];
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        setLoadingProducts(true);
+
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/products`
+        );
+
+        if (!response.ok) {
+          throw new Error("Unable to load products");
+        }
+
+        const data = await response.json();
+
+        const formattedProducts = data.map((product) => ({
+          ...product,
+          price: Number(product.price),
+          rating: Number(product.rating || 0),
+        }));
+
+        setProducts(formattedProducts);
+        setProductsError("");
+      } catch (error) {
+        console.error(error);
+        setProductsError("Unable to load featured products.");
+      } finally {
+        setLoadingProducts(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const scrollCategories = (direction) => {
     if (!categoriesRef.current) {
@@ -130,96 +164,125 @@ function Home({ addToCart }) {
         </div>
       </section>
 
-{/* category */}
-
-<section className="categories-section">
-  <div className="section-heading-row">
-    <div className="section-heading">
-      <p>Explore our various collection</p>
-      <h2>Shop by Category</h2>
-    </div>
-  </div>
-
-  <div className="categories-slider-row">
-    <div className="categories-grid" ref={categoriesRef}>
-      {categoryItems.map((category) => (
-        <Link
-          key={category.name}
-          to={`/shop?category=${encodeURIComponent(category.query)}`}
-          className="category-card"
-        >
-          <div
-            className="category-image"
-            style={{ backgroundImage: `url(${category.image})` }}
-          ></div>
-          <div className="category-label">
-            <h3>{category.tagline}</h3>
-            <span className="category-offer">Shop offer</span>
+      <section className="categories-section">
+        <div className="section-heading-row">
+          <div className="section-heading">
+            <p>Explore our various collection</p>
+            <h2>Shop by Category</h2>
           </div>
-        </Link>
-      ))}
-    </div>
+        </div>
 
-    <div className="category-scroll-controls" aria-label="Category navigation">
-      <button
-        type="button"
-        className="category-scroll-btn next"
-        onClick={() => scrollCategories("next")}
-        aria-label="Next categories"
+        <div className="categories-slider-row">
+          <div className="categories-grid" ref={categoriesRef}>
+            {categoryItems.map((category) => (
+              <Link
+                key={category.name}
+                to={`/shop?category=${encodeURIComponent(category.query)}`}
+                className="category-card"
+              >
+                <div
+                  className="category-image"
+                  style={{ backgroundImage: `url(${category.image})` }}
+                ></div>
+
+                <div className="category-label">
+                  <h3>{category.tagline}</h3>
+                  <span className="category-offer">Shop offer</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          <div
+            className="category-scroll-controls"
+            aria-label="Category navigation"
+          >
+            <button
+              type="button"
+              className="category-scroll-btn next"
+              onClick={() => scrollCategories("next")}
+              aria-label="Next categories"
+            >
+              &gt;
+            </button>
+
+            <button
+              type="button"
+              className="category-scroll-btn prev"
+              onClick={() => scrollCategories("prev")}
+              aria-label="Previous categories"
+            >
+              &lt;
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section className="featured-products-section">
+        <div className="featured-header">
+          <h2>Featured Products. Essential tools, everyday advantage.</h2>
+
+          <Link to="/shop" className="featured-view-all">
+            View all products
+          </Link>
+        </div>
+
+        {loadingProducts && (
+          <p>Loading featured products...</p>
+        )}
+
+        {productsError && (
+          <p>{productsError}</p>
+        )}
+
+        {!loadingProducts && !productsError && (
+          <div className="featured-products-grid">
+            {products.slice(0, 8).map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                addToCart={addToCart}
+              />
+            ))}
+          </div>
+        )}
+      </section>
+
+      <section
+        className="student-promo-section"
+        aria-label="Student offer"
       >
-        &gt;
-      </button>
+        <div className="student-promo-content">
+          <div className="student-promo-left">
+            <p className="student-promo-kicker">
+              Kitchen World student perks
+            </p>
 
-      <button
-        type="button"
-        className="category-scroll-btn prev"
-        onClick={() => scrollCategories("prev")}
-        aria-label="Previous categories"
-      >
-        &lt;
-      </button>
-    </div>
-  </div>
-</section>
+            <h2>
+              Your uni
+              <br />
+              kitchen <em>sorted.</em>
+            </h2>
 
-<section className="featured-products-section">
-  <div className="featured-header">
-    <h2>Featured Products. Essential tools, everyday advantage.</h2>
-    <Link to="/shop" className="featured-view-all">View all products</Link>
-  </div>
+            <p className="student-promo-brand">
+              Available exclusively with StudentBeans
+            </p>
+          </div>
 
-  <div className="featured-products-grid">
-    {products.map((product) => (
-     <ProductCard
-  key={product.id}
-  product={product}
-  addToCart={addToCart}
-/>
-    ))}
-  </div>
-</section>
+          <div className="student-promo-right">
+            <p>
+              Students, get 10% off when you spend GHc300
+            </p>
 
-<section className="student-promo-section" aria-label="Student offer">
-  <div className="student-promo-content">
-    <div className="student-promo-left">
-      <p className="student-promo-kicker">Kitchen World student perks</p>
-      <h2>
-        Your uni
-        <br />
-        kitchen <em>sorted.</em>
-      </h2>
-      <p className="student-promo-brand">Available exclusively with StudentBeans</p>
-    </div>
-
-    <div className="student-promo-right">
-      <p>Students, get 10% off when you spend GHc300</p>
-      <Link to="/shop" className="student-promo-button">Shop The Collection</Link>
-    </div>
-  </div>
-</section>
-      
-
-      
+            <Link
+              to="/shop"
+              className="student-promo-button"
+            >
+              Shop The Collection
+            </Link>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
