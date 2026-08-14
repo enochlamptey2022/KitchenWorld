@@ -77,7 +77,7 @@ function Checkout({
       // =====================================
 
       const orderResponse = await fetch(
-        "http://localhost:5000/api/orders",
+        `${import.meta.env.VITE_API_URL}/api/orders`,
         {
           method: "POST",
 
@@ -125,7 +125,7 @@ function Checkout({
       // =====================================
 
       const paymentResponse = await fetch(
-        "http://localhost:5000/api/payments/initialize",
+        `${import.meta.env.VITE_API_URL}/api/payments/initialize`,
         {
           method: "POST",
 
