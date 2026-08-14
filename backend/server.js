@@ -49,6 +49,14 @@ app.get("/", (req, res) => {
   res.send("Kitchen World API is running");
 });
 
+
+app.get("/api/test", (req, res) => {
+  res.json({
+    message: "Backend API test working",
+  });
+});
+
+
 // PRODUCT ROUTES
 app.use("/api/products", productRoutes);
 
