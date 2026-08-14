@@ -11,13 +11,11 @@ function Footer() {
       <div className="footer-container">
         <div className="footer-links-area">
           <div className="footer-links-group">
-            <h3>About ProCook</h3>
+            <h3>About Kitchen World</h3>
             <div className="footer-links-grid">
               <a href="#">About us</a>
               <a href="#">Contact us</a>
-              <a href="#">Our stores</a>
-              <a href="#">The Pantry</a>
-              <a href="#">Sustainability</a>
+              <a href="#">Our store</a>
             </div>
           </div>
 
@@ -27,15 +25,8 @@ function Footer() {
               <a href="#">FAQs</a>
               <a href="#">Age restricted goods policy</a>
               <a href="#">Delivery tracker</a>
-              <a href="#">Student discount</a>
-              <a href="#">Returns</a>
-              <a href="#">Product care</a>
-              <a href="#">Guarantees</a>
               <a href="#">Terms & conditions</a>
               <a href="#">Privacy policy</a>
-              <a href="#">ProCook for Business</a>
-              <a href="#">Gift Cards</a>
-              <a href="#">Sitemap</a>
             </div>
           </div>
         </div>
