@@ -44,22 +44,20 @@ function Register() {
     try {
       setLoading(true);
 
-      const response = await fetch(
-        "http://localhost:5000/api/auth/register",
-        {
-          method: "POST",
-
-          headers: {
-            "Content-Type": "application/json",
-          },
-
-          body: JSON.stringify({
-            fullName: formData.fullName,
-            email: formData.email,
-            password: formData.password,
-          }),
-        }
-      );
+    const response = await fetch(
+  `${import.meta.env.VITE_API_URL}/api/auth/register`,
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      fullName: formData.fullName,
+      email: formData.email,
+      password: formData.password,
+    }),
+  }
+);
 
       const data = await response.json();
 
